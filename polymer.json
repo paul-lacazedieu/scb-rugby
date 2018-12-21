@@ -1,0 +1,22 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/scb-app.js",
+  "fragments": [
+  ],
+  "sources": [
+   "src/scb-app.js",
+   "manifest/**",
+   "package.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/**"
+  ],
+  "builds": [
+    {
+      "preset": "es6-unbundled"
+    }
+  ],
+  "moduleResolution": "node",
+  "npm": true
+}
