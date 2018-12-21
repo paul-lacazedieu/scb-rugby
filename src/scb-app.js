@@ -4,6 +4,8 @@ import { sharedStyles } from './shared-styles.js';
 
 import './pages/home-page.js';
 import './components/lastmatch-element.js';
+import './components/nextmatch-element.js';
+import './components/ranking-element.js';
 
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
@@ -36,14 +38,16 @@ class SCBApp extends PolymerElement {
       }
       app-drawer {
         --app-drawer-content-container: {
-          background-color: #3e3e3e;
+          background-color: #2c3a30;
           color: #fff;
         }
       }
       app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
       }
-
+      div[content] > *:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
     </style>
     <app-drawer-layout fullbleed>
       <app-drawer slot="drawer">
@@ -56,9 +60,11 @@ class SCBApp extends PolymerElement {
             <div main-title>SCB Rugby</div>
           </app-toolbar>
         </app-header>
-        <div>
+        <div content>
           <!-- <home-page></home-page> -->
           <lastmatch-element></lastmatch-element>
+          <nextmatch-element></nextmatch-element>
+          <ranking-element></ranking-element>
         </div>
       </app-header-layout>
     </app-drawer-layout>

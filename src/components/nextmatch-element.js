@@ -2,9 +2,19 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
 import { sharedStyles } from '../shared-styles.js';
 
-class LastMatchElement extends PolymerElement {
+class NextMatchElement extends PolymerElement {
   static get properties() {
     return {};
+  }
+
+  ready() {
+    super.ready();
+
+    this.match = {
+      date: "2019-01-12",
+      team: "SC Caraman",
+      location: "Caraman"
+    };
   }
   static get template () {
     // Template getter must return an instance of HTMLTemplateElement.
@@ -46,26 +56,42 @@ class LastMatchElement extends PolymerElement {
           text-align: right;
         }
         .left.team h3 {
-          margin: 0px 0px 5px 0px;
+          margin: 0px;
           text-align: left;
         }
         .right.team h3 {
-          margin: 5px 0px 0px 0px;
+          margin: 0px;
           text-align: right;
+        }
+        .infos {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
         }
       </style>
 
-      <h3 class="title">DERNIER MATCH</h3>
+      <h3 class="title">PROCHAIN MATCH</h3>
       <hr/>
+      <div class="infos">
+        <div>
+          <iron-icon icon="today"></iron-icon>
+          <span>[[match.date]]</span>
+        </div>
+        <div>
+          <iron-icon icon="room"></iron-icon>
+          <span>[[match.location]]</span>
+        </div>
+      </div>
       <div class="match">
         <div class="left team">
-          <h3>SCB</h3>
-          <span>11</span>
+          <h3>SC Briatexte</h3>
         </div>
         <span separator></span>
         <div class="right team">
-          <span>6</span>
-          <h3>TRC</h3>
+          <h3>[[match.team]]</h3>
         </div>
       </div>
     `;
@@ -73,4 +99,4 @@ class LastMatchElement extends PolymerElement {
 }
 
 // Register the element with the browser.
-customElements.define('lastmatch-element', LastMatchElement);
+customElements.define('nextmatch-element', NextMatchElement);
